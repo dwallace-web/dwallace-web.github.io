@@ -1,0 +1,36 @@
+/* 
+TO-DOs: Media List 
+-make class media list a specific size
+-make media list image a specific size
+-set media list spacing with my https://www.w3schools.com/bootstrap4/bootstrap_utilities.asp
+-make every other media list item flip the image and div
+*/
+
+
+footer > p {
+    padding-left: 2em;
+}
+#firebaselogo {
+    height: 5em;
+}
+#gtmlogo{
+    height: 5em;
+}
+.media {
+    padding: 1em;
+    margin: 1em;
+    border: 2px rgb(90, 90, 90) solid;
+}
+.media > img {
+    width: 15em;
+    border: 1px black solid;
+}
+#Skills{
+    margin: 2em;
+}
+#aboutme {
+    margin: 2em;
+}
+#Contact {
+    margin: 2em;
+}

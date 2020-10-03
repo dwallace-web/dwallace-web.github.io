@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="portfolio.css">
+    <title>David Wallace</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav text-success">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/dwallace-web" target="_blank">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://linked.com/in/dwallacemarketing" target="_blank">Linkedin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid bg-danger text-white">
+        <div class="container">
+            <h1 class="display-4">David Wallace</h1>
+            <p class="lead">Digital Marketing Operations and Programming</p>
+        </div>
+    </div>
+    <div class="container">
+        <section>
+            <div class="row" id="About">
+                <div class="col">
+                    <h3 class="text-center">About Me</h3>
+                </div>
+            </div>
+            <div class="row" id="aboutme">
+                <div class="col text-right">
+                    <p>My interest in technology has been lifelong. In my spare time, I enjoy fitness, food and travel.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row" id="Skills">
+                <div class="col">
+                    <h3 class="text-center">My Skills</h3>
+                </div>
+            </div>
+            <div class="row" id="skillicons">
+                <!-- This is where my three skill icons will live-->
+                <div class="col-md-4 text-center">
+                    <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-code-slash " fill="currentColor" xmlns="http://www.w3.org/2000/svg">                 <path fill-rule="evenodd" d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0zm-.999-3.124a.5.5 0 0 1 .33.625l-4 13a.5.5 0 0 1-.955-.294l4-13a.5.5 0 0 1 .625-.33z"/></svg>
+                    <p> I always needed a "push" to take my HTML, CSS and JQuery skills to the next level. I'm enrolled in a programming course to increase my knowledge of Javascript, get familiar with a Javascript framework (or two) and begin developing web applications using SQL.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://www.gstatic.com/analytics-suite/header/suite/v2/ic_tag_manager.svg" alt="google tag manager logo" id="gtmlogo">
+                    <p>I'm well versed in managing marketing pixels in the Google Tag Manager platform. I've completed several trainings and actively use this platform on a day-to-day basis.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://firebase.google.com/downloads/brand-guidelines/PNG/logo-logomark.png" alt="firebase logo" id="firebaselogo">
+                    <p>I'm acquianted in other digital and analytics technologies. I've purchased biddable media in the self-serve advertising platforms and have managed yields for media publishers in the past. I'm currently learning Firebase as a student in at <a href="https://elevenfifty.org/" target="_blank">Eleven-50 Academy</a>.</p> 
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row Projects" id="Projects">
+                <div class="col-12">
+                    <h3 class="text-center">My Projects</h3>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="media">
+                        <img src="./assets/cocktail-search-screenshot.PNG" class=" img-fluid mr-3" alt="...">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Cocktail Finder</h5>
+                            <p>In my spare time, I run a small food and drink brand. This was catered to my personal interests. This Project was building use an API from <a href="https://www.thecocktaildb.com/api.php">TheCocktailDB.com</a>. The goal of this project was to fetch data from a API and display it on a webpage using DOM Manipulation. This API was deployed using firebase. In the future, I want rewrite the code to "clean" data from the API immediately after the initial fetch.</p>
+                            <a href="https://dw-cocktailapi.web.app/" target="_blank"><button type="button" class="btn btn-success">View the project here.</button></a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <img src="./assets/covid-19-api.PNG" class="mr-3" alt="...">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">COVID Data</h5>
+                            <p>We live in strange times. The first API I build was a COVID data retrieval. This grabs the most recent data from a COVID API. The data is calculated in the script file to find totals. Users can also skip to a handful specific countries. This project showed me what I could be possible with APIs in the future. </p>
+                            <a href="https://dwallace-web.github.io/covid-api-project-1/" target="_blank"><button type="button" class="btn btn-success">View the project here.</button></a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <img src="./assets/hulu replication.PNG" class="mr-3" alt="...">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Static Layout</h5>
+                            <p>This static layout was a challenge to get items positioned on the webpage. We had to pick a website to replicate. I replicated the Hulu domain. I like the hulu website because there are easily discrenible calls to actions for the user. The website users a few design techniques to get the users attention regardless of where their eyes land.</p>
+                            <p>View the project on <a href="https://dwallace-web.github.io/static-layout/">Github Pages</a>.</p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <img src="./assets/robot.PNG" class="mr-3" alt="...">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">CSS Robot</h5>
+                            <p>This was my first project at Eleven-50. The CSS Creature project was a way to get comfortable with CSS styling positioning and forcing CSS to build an object with positioning..</p>
+                            <p>View the project on <a href="https://codepen.io/davidwallace/pen/QWNyEvy">codepen.io</a></p> 
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <section>
+            <div class="row" id="Contact">
+                <div class="col-6">
+                    <h3>Contact Me</h3>
+                    <form action="https://formspree.io/meqrbero" method="post">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="_replyto" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="message" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Send" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <h3>Social Media</h3>
+                    <p>Please connect with me on <a href="http://linkedin.com/in/dwallacemarketing">Linkedin.com</a> or e-mail me using the contact form.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer bg-danger text-white py-3">
+        <p>This was built by David Wallace in October 2020.</p>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+    <!-- <script>
+        window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+        formbutton("create", {action: "https://formspree.io/meqrbero"})
+    </script> -->
+</body>
