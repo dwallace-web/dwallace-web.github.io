@@ -34,3 +34,13 @@ footer > p {
 #Contact {
     margin: 2em;
 }
+.projectstyle img {
+    width: 15em;
+    border: 1px black solid;
+    margin-bottom: 1em;
+}
+.projectstyle .row:not(:first-of-type) {
+    margin: 2em;
+    border: 2px rgb(90, 90, 90) solid;
+    padding: 2em;
+}
