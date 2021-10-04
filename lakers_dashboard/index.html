@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Lakers Dashboard</title>
+</head>
+
+<body class="bg-gradient-to-r from-laker-gold to-indigo-500">
+    <div class="container">
+        <div class="flex justify-center">
+            <div id="teamName" class="max-w-lg"></div>
+        </div>
+        <div class="flex justify-center">
+            <h2 class="m-2 p-2 text-2xl italic medium font-bold">Upcoming Games</h2>
+        </div>
+        <div id="next-schedule" class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <!-- games go here -->
+        </div>
+        <div class="flex justify-center ">
+            <h2 class="m-2 p-2 text-2xl italic medium">Current roster</h2>
+        </div>
+        <div id="roster" class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <!-- players go here -->
+        </div>
+        <div class="flex justify-center ">
+            <h2 class="m-2 p-2 text-2xl italic medium">Previous Games</h2>
+        </div>
+
+        <div id="previous-schedule" class="grid grid-cols-1 sm:grid-cols-5 gap-2">
+            <!-- games go here -->
+        </div>
+
+        <div class="flex justify-center">
+            <h2 class="m-2 p-2 text-2xl italic medium">Team Gear</h2>
+        </div>
+        <div id="teamgear" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-14">
+            <!-- team gear goes here -->
+
+        </div>
+    </div>
+    <script src="load.js"></script>
+</body>
+
+</html>
