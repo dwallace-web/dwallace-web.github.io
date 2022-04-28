@@ -12,10 +12,16 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-CWC68DP3FR');
+
     </script>
 
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'sample_user_event',
+        });
+    </script>
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -280,7 +286,8 @@
                         e-mail me using the contact form.</p>
                     <br>
                     <a href="./assets/David_Wallace_Resume_Portfolio-Site.pdf" target="_blank"><button type="button"
-                            class="btn text-white font-weight-bolder bg-danger">Download Resume</button></a>
+                            class="btn text-white font-weight-bolder bg-danger" onclick="downloadEvent()">Download
+                            Resume</button></a>
                 </div>
             </div>
         </section>
@@ -289,6 +296,7 @@
         <p>See ya soon!</p>
     </footer>
     <!-- Optional JavaScript -->
+    <script src="index.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
