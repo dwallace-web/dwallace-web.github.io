@@ -72,8 +72,8 @@ varToArray();
 let x = 0;
 let imgsrc
 for (x; x <= prodArr.length - 1; x++) {
-    console.log('hello world')
-    console.log(prodArr[x]);
+    // console.log('hello world')
+    // console.log(prodArr[x]);
     imgsrc = quickurl + prodArr[x];
     var img = document.createElement("img");
     img.style = "display:none; width: 1px; height: 1px;";
