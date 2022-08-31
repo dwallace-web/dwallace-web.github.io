@@ -43,3 +43,9 @@ footer > p {
     background-attachment: fixed;
     /* background-repeat: no-repeat;; */
 }
+.warning-block {
+    background-color: rgb(167, 0, 0);
+    margin: 2px;
+    padding: 2px;
+    color: white;
+}
