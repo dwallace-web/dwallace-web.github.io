@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day - Brittany</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'valentine-red': '#E31837',
+            'valentine-pink': '#FF69B4',
+            'valentine-maroon': '#800020',
+            'valentine-gold': '#FFD700',
+          },
+          fontFamily: {
+            'bebas': ['"Bebas Neue"', 'Helvetica', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Bebas Neue', Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Diagonal stripe backgrounds */
+    .stripe-left {
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 20px,
+        currentColor 20px,
+        currentColor 22px
+      );
+    }
+
+    .stripe-right {
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        currentColor 20px,
+        currentColor 22px
+      );
+    }
+
+    /* Scroll reveal sections */
+    .reveal-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative diagonal overlays */
+    .diagonal-overlay-left::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(0,0,0,0.03) 40px,
+        rgba(0,0,0,0.03) 42px
+      );
+      pointer-events: none;
+    }
+
+    .diagonal-overlay-right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.05) 40px,
+        rgba(255,255,255,0.05) 42px
+      );
+      pointer-events: none;
+    }
+
+    /* Reveal animations */
+    .reveal-content {
+      opacity: 0;
+      transform: translateY(60px) scale(0.95);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-content.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Checkbox styling - political poster aesthetic */
+    .vote-checkbox {
+      width: 70px;
+      height: 70px;
+      border: 5px solid #E31837;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .vote-checkbox {
+        width: 80px;
+        height: 80px;
+        border: 6px solid #E31837;
+      }
+    }
+
+    .vote-checkbox:hover {
+      transform: scale(1.05);
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .vote-checkbox.checked {
+      background: white;
+    }
+
+    .vote-checkbox .checkmark {
+      opacity: 0;
+      transform: scale(0) rotate(-20deg);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      font-size: 50px;
+      color: #FFD700;
+      font-weight: 900;
+      text-shadow: 3px 3px 0 #E31837;
+      line-height: 1;
+    }
+
+    @media (min-width: 768px) {
+      .vote-checkbox .checkmark {
+        font-size: 60px;
+      }
+    }
+
+    .vote-checkbox.checked .checkmark {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* Easter egg emoji transformation */
+    .vote-checkbox.emoji-mode .checkmark {
+      text-shadow: none;
+      font-size: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .vote-checkbox.emoji-mode .checkmark {
+        font-size: 50px;
+      }
+    }
+
+    /* Spinning star hint */
+    .vote-checkbox-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .vote-checkbox-wrapper .hint-star {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .vote-checkbox-wrapper .hint-star {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    .vote-checkbox-wrapper.hint-active .hint-star {
+      opacity: 1;
+      animation: spin-star 3s linear infinite;
+    }
+
+    @keyframes spin-star {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    /* Pulsing glow for extra attention */
+    .vote-checkbox-wrapper.hint-active .vote-checkbox {
+      animation: pulse-glow 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.6);
+      }
+    }
+
+    /* Mobile-friendly text adjustments */
+    @media (max-width: 480px) {
+      .vote-option-text {
+        font-size: 2rem !important;
+      }
+    }
+
+    /* Footer hover effect */
+    .footer-name {
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 0 8px;
+      cursor: pointer;
+    }
+
+    .footer-name:hover {
+      background-color: #FFD700;
+      color: black;
+    }
+
+    /* Decorative hearts floating */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .floating-heart {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Diagonal accent bars */
+    .accent-bar-left {
+      position: absolute;
+      width: 200px;
+      height: 20px;
+      background: currentColor;
+      transform: rotate(-45deg);
+    }
+
+    .accent-bar-right {
+      position: absolute;
+      width: 200px;
+      height: 20px;
+      background: currentColor;
+      transform: rotate(45deg);
+    }
+
+    /* Section-specific decorative lines */
+    .section-stripes-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .stripe-element {
+      position: absolute;
+      background: currentColor;
+      opacity: 0.1;
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- Section 1: Valentine's Day (RED) -->
+  <section class="reveal-section bg-valentine-red diagonal-overlay-right">
+    <div class="section-stripes-container text-white">
+      <div class="stripe-element" style="width: 300px; height: 8px; top: 20%; left: -50px; transform: rotate(-45deg);"></div>
+      <div class="stripe-element" style="width: 400px; height: 8px; top: 40%; right: -100px; transform: rotate(-45deg);"></div>
+      <div class="stripe-element" style="width: 250px; height: 8px; bottom: 30%; left: 10%; transform: rotate(-45deg);"></div>
+      <div class="stripe-element" style="width: 350px; height: 8px; bottom: 15%; right: 5%; transform: rotate(-45deg);"></div>
+    </div>
+    <div class="reveal-content text-center px-4">
+      <h1 class="font-bebas text-white text-[15vw] md:text-[12vw] leading-none tracking-tight drop-shadow-[8px_8px_0_rgba(0,0,0,0.3)]">
+        VALENTINE'S
+      </h1>
+      <h1 class="font-bebas text-white text-[20vw] md:text-[15vw] leading-none tracking-tight -mt-4 drop-shadow-[8px_8px_0_rgba(0,0,0,0.3)]">
+        DAY
+      </h1>
+      <div class="mt-8 text-valentine-pink text-4xl animate-bounce">↓</div>
+    </div>
+  </section>
+
+  <!-- Section 2: Brittany (WHITE) -->
+  <section class="reveal-section bg-white diagonal-overlay-left">
+    <div class="section-stripes-container text-valentine-red">
+      <div class="stripe-element" style="width: 350px; height: 10px; top: 15%; right: -50px; transform: rotate(45deg);"></div>
+      <div class="stripe-element" style="width: 280px; height: 10px; top: 50%; left: -80px; transform: rotate(45deg);"></div>
+      <div class="stripe-element" style="width: 400px; height: 10px; bottom: 25%; right: 0; transform: rotate(45deg);"></div>
+      <div class="stripe-element" style="width: 200px; height: 10px; bottom: 10%; left: 15%; transform: rotate(45deg);"></div>
+    </div>
+    <div class="reveal-content text-center px-4">
+      <h1 class="font-bebas text-valentine-red text-[22vw] md:text-[18vw] leading-none tracking-wider" style="font-weight: 900; -webkit-text-stroke: 2px #800020;">
+        BRITTANY
+      </h1>
+    </div>
+  </section>
+
+  <!-- Section 3: Will you be my Valentine (PINK) -->
+  <section class="reveal-section bg-valentine-pink diagonal-overlay-right">
+    <div class="section-stripes-container text-white">
+      <div class="stripe-element" style="width: 500px; height: 12px; top: 10%; left: -100px; transform: rotate(-45deg);"></div>
+      <div class="stripe-element" style="width: 300px; height: 12px; top: 35%; right: -50px; transform: rotate(-45deg);"></div>
+      <div class="stripe-element" style="width: 400px; height: 12px; bottom: 40%; left: 5%; transform: rotate(-45deg);"></div>
+      <div class="stripe-element" style="width: 250px; height: 12px; bottom: 5%; right: 10%; transform: rotate(-45deg);"></div>
+    </div>
+    <div class="reveal-content text-center px-4">
+      <h2 class="font-bebas text-white text-[10vw] md:text-[7vw] leading-tight tracking-wide drop-shadow-[6px_6px_0_rgba(128,0,32,0.4)]">
+        WILL YOU BE MY
+      </h2>
+      <h2 class="font-bebas text-valentine-maroon text-[14vw] md:text-[10vw] leading-none tracking-wider mt-2">
+        VALENTINE?
+      </h2>
+    </div>
+  </section>
+
+  <!-- Section 4: Yes / Heck Yeah Checkboxes (WHITE) -->
+  <section class="reveal-section bg-white diagonal-overlay-left">
+    <div class="section-stripes-container text-valentine-maroon">
+      <div class="stripe-element" style="width: 300px; height: 8px; top: 25%; right: -80px; transform: rotate(45deg);"></div>
+      <div class="stripe-element" style="width: 350px; height: 8px; top: 60%; left: -50px; transform: rotate(45deg);"></div>
+      <div class="stripe-element" style="width: 280px; height: 8px; bottom: 20%; right: 15%; transform: rotate(45deg);"></div>
+    </div>
+    <div class="reveal-content text-center px-4">
+      <h3 class="font-bebas text-valentine-maroon text-3xl sm:text-4xl md:text-6xl tracking-wide mb-8 md:mb-12">
+        WHAT DO YOU SAY?
+      </h3>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20">
+        <!-- Yes Option -->
+        <div class="flex items-center gap-4 md:gap-6">
+          <span class="font-bebas text-valentine-red text-4xl sm:text-5xl md:text-7xl tracking-wide vote-option-text">YES</span>
+          <div class="vote-checkbox-wrapper" id="yes-wrapper">
+            <svg class="hint-star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 0L58.5 35.5L95 35.5L65.5 55L76 91L50 70L24 91L34.5 55L5 35.5L41.5 35.5L50 0Z" 
+                    stroke="#FFD700" stroke-width="3" stroke-dasharray="8 4" fill="none"/>
+            </svg>
+            <div class="vote-checkbox" id="yes-checkbox" data-emoji="😍" onclick="toggleCheck('yes')" role="checkbox" aria-checked="false" tabindex="0">
+              <span class="checkmark">✓</span>
+            </div>
+          </div>
+        </div>
+        <!-- Heck Yeah Option -->
+        <div class="flex items-center gap-4 md:gap-6">
+          <span class="font-bebas text-valentine-red text-4xl sm:text-5xl md:text-7xl tracking-wide vote-option-text">HECK YEAH</span>
+          <div class="vote-checkbox-wrapper" id="heck-wrapper">
+            <svg class="hint-star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 0L58.5 35.5L95 35.5L65.5 55L76 91L50 70L24 91L34.5 55L5 35.5L41.5 35.5L50 0Z" 
+                    stroke="#FFD700" stroke-width="3" stroke-dasharray="8 4" fill="none"/>
+            </svg>
+            <div class="vote-checkbox" id="heck-checkbox" data-emoji="❤️‍🔥" onclick="toggleCheck('heck')" role="checkbox" aria-checked="false" tabindex="0">
+              <span class="checkmark">✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8 md:py-12 px-4">
+    <div class="text-center">
+      <p class="font-bebas text-white text-xl sm:text-2xl md:text-4xl tracking-widest">
+        TO <span class="footer-name inline-block">BRITTANY</span>, 
+        FROM <span class="footer-name inline-block">DAVID</span>
+      </p>
+      <p class="font-bebas text-valentine-gold text-lg md:text-xl tracking-[0.3em] mt-3 md:mt-4">2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll reveal
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all reveal content elements
+    document.querySelectorAll('.reveal-content').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Checkbox state tracking
+    const checkboxState = {
+      yes: false,
+      heck: false
+    };
+
+    // Checkbox toggle function with easter egg logic
+    function toggleCheck(id) {
+      const checkbox = document.getElementById(`${id}-checkbox`);
+      const otherID = id === 'yes' ? 'heck' : 'yes';
+      const otherCheckbox = document.getElementById(`${otherID}-checkbox`);
+      const wrapper = document.getElementById(`${id}-wrapper`);
+      const otherWrapper = document.getElementById(`${otherID}-wrapper`);
+      
+      // Toggle state
+      checkboxState[id] = !checkboxState[id];
+      checkbox.classList.toggle('checked', checkboxState[id]);
+      checkbox.setAttribute('aria-checked', checkboxState[id]);
+
+      // Remove hint from this one since it was clicked
+      wrapper.classList.remove('hint-active');
+
+      // Check if both are checked - Easter egg!
+      if (checkboxState.yes && checkboxState.heck) {
+        // Both checked - show emojis!
+        activateEasterEgg();
+      } else if (checkboxState.yes || checkboxState.heck) {
+        // Only one checked - show hint on the other
+        deactivateEasterEgg();
+        otherWrapper.classList.add('hint-active');
+      } else {
+        // None checked
+        deactivateEasterEgg();
+        otherWrapper.classList.remove('hint-active');
+      }
+
+      // Click animation
+      if (checkboxState[id]) {
+        checkbox.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          checkbox.style.transform = '';
+        }, 200);
+      }
+    }
+
+    function activateEasterEgg() {
+      const yesCheckbox = document.getElementById('yes-checkbox');
+      const heckCheckbox = document.getElementById('heck-checkbox');
+      const yesWrapper = document.getElementById('yes-wrapper');
+      const heckWrapper = document.getElementById('heck-wrapper');
+      
+      // Remove hints
+      yesWrapper.classList.remove('hint-active');
+      heckWrapper.classList.remove('hint-active');
+      
+      // Add emoji mode
+      yesCheckbox.classList.add('emoji-mode');
+      heckCheckbox.classList.add('emoji-mode');
+      
+      // Change checkmarks to emojis
+      const yesCheckmark = yesCheckbox.querySelector('.checkmark');
+      const heckCheckmark = heckCheckbox.querySelector('.checkmark');
+      
+      yesCheckmark.textContent = '😍';
+      heckCheckmark.textContent = '❤️‍🔥';
+      
+      // Celebration animation
+      yesCheckbox.style.transform = 'scale(1.2) rotate(-5deg)';
+      heckCheckbox.style.transform = 'scale(1.2) rotate(5deg)';
+      
+      setTimeout(() => {
+        yesCheckbox.style.transform = '';
+        heckCheckbox.style.transform = '';
+      }, 400);
+    }
+
+    function deactivateEasterEgg() {
+      const yesCheckbox = document.getElementById('yes-checkbox');
+      const heckCheckbox = document.getElementById('heck-checkbox');
+      
+      // Remove emoji mode
+      yesCheckbox.classList.remove('emoji-mode');
+      heckCheckbox.classList.remove('emoji-mode');
+      
+      // Reset checkmarks
+      const yesCheckmark = yesCheckbox.querySelector('.checkmark');
+      const heckCheckmark = heckCheckbox.querySelector('.checkmark');
+      
+      yesCheckmark.textContent = '✓';
+      heckCheckmark.textContent = '✓';
+    }
+
+    // Keyboard support for checkboxes
+    document.querySelectorAll('.vote-checkbox').forEach(checkbox => {
+      checkbox.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const id = checkbox.id.replace('-checkbox', '');
+          toggleCheck(id);
+        }
+      });
+    });
+
+    // Trigger first section immediately
+    setTimeout(() => {
+      document.querySelector('.reveal-content').classList.add('visible');
+    }, 300);
+  </script>
+</body>
+</html>
